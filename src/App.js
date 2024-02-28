@@ -33,31 +33,6 @@ const App = () => {
     setResultado('');
   };
 
-  // const result = (selected1, selected2) => {
-  //   let result = '';
-
-  //   if(puntosP1 === 3){
-  //     result = "Jugador 1 ha ganado el juego!";
-  //   } else if(puntosP2 === 3) {
-  //     result = "Jugador 2 ha ganado el juego!";
-  //   } else if (selected2 === selected1) {
-  //     result = "Empate";
-  //   } else {
-  //     if (
-  //       (selected1 === choices[0] && selected2 === choices[2]) ||
-  //       (selected1 === choices[1] && selected2 === choices[0]) ||
-  //       (selected1 === choices[2] && selected2 === choices[1])
-  //     ) {
-  //       setPuntosP1(puntosP1 + 1);
-  //       result = "Jugador 1 gana la ronda";
-  //     } else {
-  //       setPuntosP2(puntosP2 + 1);
-  //       result = "Jugador 2 gana la ronda";
-  //     }
-  //   }
-  //   setResultado(result);
-  // };  
-
   const cambiarValorP1 = (valor) => {
     setSelected1(valor);
   }
@@ -72,27 +47,10 @@ const App = () => {
 
   const jugar = async () => {
     const data = { p1: selected1, p2: selected2 };
-    // try {
-    //   const response = await fetch(backURL, {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(data)
-    //   });
-  
-    //   if (!response.ok) {
-    //     throw new Error('Error al hacer la solicitud');
-    //   }
-  
-    //   const resultado = await response.json();
-    //   setResultado(resultado);
-    // } catch (error) {
-    //   console.error('Error:', error);
-    // }
+
     try {
 
-      const response = await axios.post(backURL, data);
+      const response = await axios.post(`${backURL}?p1=${data.p1}&p2=${data.p2}`);
 
       const resultado = response.data;
       setResultado(resultado);
