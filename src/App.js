@@ -7,6 +7,8 @@ import axios from 'axios';
 
 const choices = ["Piedra", "Papel", "Tijeras"];
 const backURL = "https://proyectoserver20240228134952.azurewebsites.net/api/ControladorJuego";
+const ganadorP1 = "Jugador 1 gana la ronda!"
+const ganadorP2 = "Jugador 2 gana la ronda!"
 
 const Inicio = ({ onStart }) => {
   return (
@@ -24,6 +26,8 @@ const App = () => {
   const [puntosP2, setPuntosP2] = useState(0);
   const [resultado, setResultado] = useState('');
   const [juegoIniciado, setJuegoIniciado] = useState(false);
+
+  const [resultadoFinal, setResultadoFinal] = useState("");
 
   const reiniciarJuego = () => {
     setSelected1("");
@@ -53,7 +57,23 @@ const App = () => {
       const response = await axios.post(`${backURL}?p1=${data.p1}&p2=${data.p2}`);
 
       const resultado = response.data;
+
+      if (resultado === ganadorP1){
+        setPuntosP1(puntosP1 + 1);
+      }else if ( resultado === ganadorP2){
+        setPuntosP2(puntosP2 + 1);
+      }
+
       setResultado(resultado);
+
+      if(puntosP1 === 3){
+        setResultadoFinal("Jugador 1 ha ganado el juego!");
+        setResultado(resultadoFinal);
+
+      } else if(puntosP2 === 3) {
+        setResultadoFinal("Jugador 2 ha ganado el juego!");
+        setResultado(resultadoFinal);
+      }
       
     } catch (error) {
       console.error('Error inesperado:', error);
