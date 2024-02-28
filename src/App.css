@@ -1,0 +1,58 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.centered {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
+.column {
+  display: inline-block;
+  vertical-align: top;
+  margin: 30px 20px;
+}
+
+.column p {
+  margin: auto 0;
+}
+
+.separador {
+  border-left: 4px solid black;
+  height: 600px;
+}
+
+.estilo-boton {
+  background-color: #4CAF50;
+  color: white; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s;
+}
+
+.estilo-boton:hover {
+  background-color: #45a049;
+}
+
+body {
+  background-color:rgba(50, 50, 50, 0.8)
+}
+
+.app {
+  background-color: #c1dfdc;
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
