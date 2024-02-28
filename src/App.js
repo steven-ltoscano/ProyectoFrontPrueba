@@ -33,30 +33,30 @@ const App = () => {
     setResultado('');
   };
 
-  const result = (selected1, selected2) => {
-    let result = '';
+  // const result = (selected1, selected2) => {
+  //   let result = '';
 
-    if(puntosP1 === 3){
-      result = "Jugador 1 ha ganado el juego!";
-    } else if(puntosP2 === 3) {
-      result = "Jugador 2 ha ganado el juego!";
-    } else if (selected2 === selected1) {
-      result = "Empate";
-    } else {
-      if (
-        (selected1 === choices[0] && selected2 === choices[2]) ||
-        (selected1 === choices[1] && selected2 === choices[0]) ||
-        (selected1 === choices[2] && selected2 === choices[1])
-      ) {
-        setPuntosP1(puntosP1 + 1);
-        result = "Jugador 1 gana la ronda";
-      } else {
-        setPuntosP2(puntosP2 + 1);
-        result = "Jugador 2 gana la ronda";
-      }
-    }
-    setResultado(result);
-  };  
+  //   if(puntosP1 === 3){
+  //     result = "Jugador 1 ha ganado el juego!";
+  //   } else if(puntosP2 === 3) {
+  //     result = "Jugador 2 ha ganado el juego!";
+  //   } else if (selected2 === selected1) {
+  //     result = "Empate";
+  //   } else {
+  //     if (
+  //       (selected1 === choices[0] && selected2 === choices[2]) ||
+  //       (selected1 === choices[1] && selected2 === choices[0]) ||
+  //       (selected1 === choices[2] && selected2 === choices[1])
+  //     ) {
+  //       setPuntosP1(puntosP1 + 1);
+  //       result = "Jugador 1 gana la ronda";
+  //     } else {
+  //       setPuntosP2(puntosP2 + 1);
+  //       result = "Jugador 2 gana la ronda";
+  //     }
+  //   }
+  //   setResultado(result);
+  // };  
 
   const cambiarValorP1 = (valor) => {
     setSelected1(valor);
